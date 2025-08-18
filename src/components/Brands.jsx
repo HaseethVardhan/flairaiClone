@@ -20,7 +20,7 @@ const Brands = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full relative">
+    <div className="h-full w-full relative hide-scrollbar">
       <div
         className="absolute inset-0 z-0"
         style={{
