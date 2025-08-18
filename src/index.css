@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@theme {
+    --font-muoto: "Muoto", sans-serif;
+    /* --font-inter: "Inter", sans-serif; */
+}
+
+
+@font-face {
+  font-family: "Muoto";
+  src: url("../assets/fonts/MuotoTrial-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Muoto";
+  src: url("../assets/fonts/MuotoTrial-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Muoto";
+  src: url("../assets/fonts/MuotoTrial-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Muoto";
+  src: url("../assets/fonts/MuotoTrial-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Muoto";
+  src: url("../assets/fonts/MuotoTrial-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
