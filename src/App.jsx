@@ -1,3 +1,4 @@
+import Brands from "./components/Brands"
 import Hero from "./components/Hero"
 import { Navbar } from "./components/Navbar"
 
@@ -7,6 +8,7 @@ function App() {
     <div className="w-screen h-full bg-[#161616] py-6">
       <Navbar />
       <Hero />
+      <Brands />
     </div>
   )
 }

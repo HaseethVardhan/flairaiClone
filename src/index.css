@@ -53,4 +53,12 @@
   will-change: transform, opacity;
 }
 
+@keyframes scrollAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 

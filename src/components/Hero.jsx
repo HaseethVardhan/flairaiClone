@@ -18,7 +18,7 @@ const Hero = () => {
   }, [words.length]);
 
   return (
-    <section className="relative flex flex-col items-center min-h-screen w-full overflow-hidden text-white px-6 font-muoto">
+    <section className="relative flex flex-col items-center h-full w-full overflow-hidden text-white px-6 font-muoto">
       <div className="text-center z-10 mt-20">
         <h1 className="text-5xl text-zinc-100/80 font-light sm:text-6xl lg:text-8xl leading-tight">
           The AI design tool for <br />
@@ -47,7 +47,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative w-full flex justify-center">
+      <div className="relative w-full h-full flex justify-center mb-20 sm:mb-40">
         <img
           src="./src/assets/bg-1.webp"
           alt="Green Tint"
