@@ -8,35 +8,49 @@
 
 @font-face {
   font-family: "Muoto";
-  src: url("../assets/fonts/MuotoTrial-Regular.ttf") format("truetype");
+  src: url("./assets/font/MuotoTrial-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Muoto";
-  src: url("../assets/fonts/MuotoTrial-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Muoto";
-  src: url("../assets/fonts/MuotoTrial-Bold.ttf") format("truetype");
-  font-weight: 700;
+  src: url("./assets/font/MuotoTrial-Thin.woff2") format("woff2");
+  font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Muoto";
-  src: url("../assets/fonts/MuotoTrial-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Muoto";
-  src: url("../assets/fonts/MuotoTrial-Black.ttf") format("truetype");
-  font-weight: 900;
+  src: url("./assets/font/MuotoTrial-Light.woff2") format("woff2");
+  font-weight: 100;
   font-style: normal;
 }
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  8% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  83% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+/* class you use in JSX */
+.animate-fadeUp {
+  display: inline-block; /* important so transform applies cleanly */
+  animation: fadeUp 2400ms cubic-bezier(.22,.98,.18,1) both;
+  will-change: transform, opacity;
+}
+
+

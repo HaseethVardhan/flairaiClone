@@ -1,10 +1,12 @@
+import Hero from "./components/Hero"
 import { Navbar } from "./components/Navbar"
 
 function App() {
 
   return (
-    <div className="w-screen h-screen bg-[#161616] py-6">
+    <div className="w-screen h-full bg-[#161616] py-6">
       <Navbar />
+      <Hero />
     </div>
   )
 }
