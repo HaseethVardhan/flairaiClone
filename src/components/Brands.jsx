@@ -59,12 +59,12 @@ const Brands = () => {
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 mx-8 w-40 h-40 flex items-center justify-center px-4 border border-[#ffffff15] rounded-3xl"
+                className="flex-shrink-0 mx-8 w-40 h-40 flex items-center justify-center border border-[#ffffff15] rounded-3xl"
               >
                 <img
                   src={logo}
                   alt={`Brand Logo ${index + 1}`}
-                  className="h-12 object-contain"
+                  className="h-12 object-contain scale-75"
                 />
               </div>
             ))}
