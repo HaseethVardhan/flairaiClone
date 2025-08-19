@@ -1,6 +1,6 @@
 const TemplateComponent = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col font-muoto font-light lg:flex-row items-center justify-center px-6 mt-10 lg:px-12 gap-8">
+    <section className="w-full min-h-screen flex flex-col font-muoto font-light lg:flex-row items-center justify-center px-6 mt-10 lg:px-12 gap-4">
       {/* Left: Video with background */}
       <div className="w-full lg:w-[55%] flex flex-col justify-between h-full ">
         <div className="rounded-2xl p-3 lg:p-4">
@@ -16,7 +16,7 @@ const TemplateComponent = () => {
       </div>
 
       {/* Right: Text */}
-      <div className="w-full lg:w-[45%] max-w-md flex flex-col justify-evenly h-[500px] text-left">
+      <div className="w-full lg:w-[45%] max-w-sm flex flex-col justify-evenly h-[500px] text-left">
         <h2 className="text-3xl lg:text-5xl font-light text-[#d6d6d6] leading-snug">
           Mix & match product with templates
         </h2>
