@@ -94,14 +94,14 @@
 }
 
 .slideDown {
-  animation: slideDown 1s ease-out forwards;
+  animation: slideDown 1.5s ease-out forwards;
 }
 .slideUp {
-  animation: slideUp 1s ease-out forwards;
+  animation: slideUp 1.5s ease-out forwards;
 }
 .slideLeft {
-  animation: slideLeft 1s ease-out forwards;
+  animation: slideLeft 1.5s ease-out forwards;
 }
 .slideRight {
-  animation: slideRight 1s ease-out forwards;
+  animation: slideRight 1.5s ease-out forwards;
 }

@@ -1,19 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const ANIM_MS = 1700; // must match your longest slide keyframe duration
 
 const AnimatedComponent = () => {
-  const [animationDone, setAnimationDone] = useState(false);
+  const sectionRef = useRef(null);
+  const [triggered, setTriggered] = useState(false);     // section entered view
+  const [frontVisible, setFrontVisible] = useState(false); // show front after anims
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationDone(true);
-    }, 1200); // match longest animation
+    const el = sectionRef.current;
+    if (!el) return;
 
-    return () => clearTimeout(timer);
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTriggered(true);                      // start back-image slides
+          setTimeout(() => setFrontVisible(true), ANIM_MS); // reveal front after
+          io.disconnect();                         // run once
+        }
+      },
+      {
+        threshold: 0.15,           // ~15% visible
+        rootMargin: "0px 0px -20% 0px", // trigger a bit before fully in view
+      }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   return (
-    <section className="text-[#d6d6d6] min-h-screen font-muoto font-light flex items-center justify-center px-10 relative mt-20">
-      
+    <section
+      ref={sectionRef}
+      className="text-[#d6d6d6] min-h-screen font-muoto font-light flex items-center justify-center px-10 relative mt-20"
+    >
       {/* Decorative Image (independent of max-w-6xl) */}
       <img
         src="/e1.png"
@@ -27,36 +47,50 @@ const AnimatedComponent = () => {
           <h1 className="text-4xl lg:text-8xl font-light leading-tight tracking-tight">
             Stage scenes digitally with
             drag &amp; drop props.{" "}
-            <span className="lg:max-w-[50%] text-wrap">
-               Bring it to life with AI.
-            </span>
+            <span className="lg:max-w-[50%] text-wrap">Bring it to life with AI.</span>
           </h1>
         </div>
 
         {/* Image Hover Effect */}
         <div className="relative w-full flex justify-center lg:justify-end lg:-mt-20">
           <div className="relative w-full md:w-[40%] lg:w-[40%] h-[500px] rounded-lg overflow-hidden group">
-            
-            {/* Back Composite Images */}
-            <img src="/e2.png" alt="Back Layer 1"
-              className="w-full h-full object-cover absolute top-0 left-0 slideDown"
+            {/* Back Composite Images (animate only after trigger) */}
+            <img
+              src="/e2.png"
+              alt="Back Layer 1"
+              className={`w-full h-full object-cover absolute top-0 left-0 ${
+                triggered ? "slideDown" : "opacity-0"
+              }`}
             />
-            <img src="/e3.png" alt="Back Layer 2"
-              className="w-full h-full object-cover absolute top-0 left-0 slideUp"
+            <img
+              src="/e3.png"
+              alt="Back Layer 2"
+              className={`w-full h-full object-cover absolute top-0 left-0 ${
+                triggered ? "slideUp" : "opacity-0"
+              }`}
             />
-            <img src="/e4.png" alt="Back Layer 3"
-              className="w-full h-full object-cover absolute top-0 left-0 slideLeft"
+            <img
+              src="/e4.png"
+              alt="Back Layer 3"
+              className={`w-full h-full object-cover absolute top-0 left-0 ${
+                triggered ? "slideLeft" : "opacity-0"
+              }`}
             />
-            <img src="/e5.png" alt="Back Layer 4"
-              className="w-full h-full object-cover absolute top-0 left-0 slideRight"
+            <img
+              src="/e5.png"
+              alt="Back Layer 4"
+              className={`w-full h-full object-cover absolute top-0 left-0 ${
+                triggered ? "slideRight" : "opacity-0"
+              }`}
             />
 
-            {/* Front Image */}
+            {/* Front Image: hidden during animation, visible after; hover stays instant */}
             <img
               src="/e6.png"
               alt="Front"
-              className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-700 group-hover:opacity-0 
-                ${animationDone ? "opacity-100" : "opacity-0"}`}
+              className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-700 group-hover:opacity-0 ${
+                frontVisible ? "opacity-100" : "opacity-0"
+              }`}
             />
           </div>
         </div>
