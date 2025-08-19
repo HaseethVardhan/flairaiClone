@@ -49,13 +49,13 @@ const Hero = () => {
 
       <div className="relative w-full h-full flex justify-center mb-20 sm:mb-40 lg:mb-60">
         <img
-          src="./src/assets/bg-1.webp"
+          src="./public/bg-1.webp"
           alt="Green Tint"
           className="absolute z-0 scale-150 opacity-60 pointer-events-none select-none"
         />
 
         <img
-          src="./src/assets/laptop.webp"
+          src="./public/laptop.webp"
           alt="Laptop"
           className="relative z-10 pointer-events-none select-none scale-150"
         />
