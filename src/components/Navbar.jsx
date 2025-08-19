@@ -19,7 +19,7 @@ export const Navbar = () => {
             <h1 className="text-[1.6rem] ml-2 text-zinc-200 select-none tracking-normal font-muoto font-[200]">Flair.ai</h1>
         </div>
         <div>
-            <button className='w-30 font-muoto text-[0.9rem]  flex flex-row items-center justify-center px-6 py-2.5 sm:py-2 text-sm rounded-lg transition-colors whitespace-nowrap text-zinc-300 font-semibold border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 shadow-xl'>Try Flair AI</button>
+            <button className={`w-30 font-muoto text-[0.9rem]  flex flex-row items-center justify-center px-6 py-2.5 sm:py-2 text-sm rounded-lg transition-colors whitespace-nowrap text-zinc-300 font-semibold border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 shadow-xl ${scrolled ? "bg-[#84cc16]" : ""}`}>Try Flair AI</button>
         </div>
     </div>
   );
