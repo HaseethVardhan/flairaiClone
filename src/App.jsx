@@ -1,5 +1,6 @@
 import AnimatedComponent from "./components/AnimatedComponent"
 import Brands from "./components/Brands"
+import ComparisionComponent from "./components/ComparisionComponent"
 import Content from "./components/Content"
 import Hero from "./components/Hero"
 import { Navbar } from "./components/Navbar"
@@ -10,7 +11,7 @@ import TemplateComponent from "./components/TemplateComponent"
 function App() {
 
   return (
-    <div className="w-screen h-full bg-[#161616] py-6 hide-scrollbar">
+    <div className="w-screen h-full bg-gradient-to-b from-[#161616] to-[#111111] py-6 hide-scrollbar">
       <Navbar />
       <Hero />
       <Brands />
@@ -19,6 +20,7 @@ function App() {
       <TemplateComponent />
       <ShowcaseComponent />
       <ShowcaseComponent2 />
+      <ComparisionComponent />
     </div>
   )
 }
