@@ -4,7 +4,7 @@ import Content from "./components/Content"
 import Hero from "./components/Hero"
 import { Navbar } from "./components/Navbar"
 import { ShowcaseComponent } from "./components/ShowcaseComponent"
-import ShowcaseComponent2 from "./components/showcaseComponent2"
+import ShowcaseComponent2 from "./components/ShowcaseComponent2"
 import TemplateComponent from "./components/TemplateComponent"
 
 function App() {
