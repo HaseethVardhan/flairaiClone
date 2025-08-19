@@ -1,3 +1,4 @@
+import AnimatedComponent from "./components/AnimatedComponent"
 import Brands from "./components/Brands"
 import Content from "./components/Content"
 import Hero from "./components/Hero"
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <Brands />
       <Content />
+      <AnimatedComponent />
     </div>
   )
 }
