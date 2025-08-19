@@ -3,6 +3,7 @@ import Brands from "./components/Brands"
 import Content from "./components/Content"
 import Hero from "./components/Hero"
 import { Navbar } from "./components/Navbar"
+import TemplateComponent from "./components/TemplateComponent"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Brands />
       <Content />
       <AnimatedComponent />
+      <TemplateComponent />
     </div>
   )
 }
