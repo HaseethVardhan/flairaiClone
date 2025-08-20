@@ -79,14 +79,14 @@ export const LargeNavbar = () => {
         {/* Right: CTA */}
         <div>
           <button
-            className={`w-30 font-muoto text-[0.9rem] flex flex-row items-center justify-center px-6 py-2.5 sm:py-2 text-sm rounded-lg transition-all duration-300 whitespace-nowrap font-semibold  
+            className={`w-38 font-muoto text-[0.9rem] flex flex-row items-center justify-center px-6 py-2.5 sm:py-2 text-sm rounded-lg transition-all duration-300 whitespace-nowrap font-semibold  
           ${
             scrolled
               ? "bg-[#84cc16] text-[#161616] hover:bg-[#92e319] hover:shadow-[0_0_20px_#92e319]"
               : "text-zinc-300 hover:border-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 border border-zinc-800"
           }`}
           >
-            Try Flair AI
+            Try Flair AI for free
           </button>
         </div>
       </div>

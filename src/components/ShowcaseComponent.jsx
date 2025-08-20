@@ -1,10 +1,37 @@
-export const ShowcaseComponent = () => {
+import { useEffect, useRef, useState } from "react";
+
+const ShowcaseComponent = () => {
+  const sectionRef = useRef(null);
+  const [triggered, setTriggered] = useState(false); // show back when in view
+  const [frontVisible, setFrontVisible] = useState(false); // fade in front
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTriggered(true); // back becomes visible
+          // tiny delay so you clearly see back before front fades in
+          setTimeout(() => setFrontVisible(true), 30);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section className="w-full min-h-screen flex items-center font-muoto font-light justify-center px-6 lg:px-12">
-      {/* Outer Wrapper with Border */}
+    <section
+      ref={sectionRef}
+      className="w-full min-h-screen flex items-center font-muoto font-light justify-center px-6 lg:px-12"
+    >
       <div className="flex flex-col w-full max-w-6xl lg:flex-row items-center justify-center gap-8 border border-[#ffffff11] rounded-2xl p-6 lg:p-10 shadow-lg">
-        
-        {/* Left: Text */}
+        {/* Left */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center max-w-md text-left space-y-2">
           <p className="text-[#84cc16] text-sm tracking-wide uppercase">
             New Feature
@@ -21,23 +48,31 @@ export const ShowcaseComponent = () => {
           </button>
         </div>
 
-        {/* Right: Image with hover effect */}
+        {/* Right */}
         <div className="relative w-full lg:w-1/2 flex justify-center">
-          {/* Hover Swap Images */}
           <div className="relative rounded-2xl overflow-hidden shadow-xl group w-[220px] sm:w-[300px] lg:w-[350px]">
-            <img
-              src="/e8.png"
-              alt="Model"
-              className="w-full h-auto object-cover transition-opacity duration-500 group-hover:opacity-0"
-            />
+            {/* BACK: shows once triggered; stays visible underneath (no fade-out) */}
             <img
               src="/e7.png"
-              alt="Model Hover"
-              className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              alt="Model Back"
+              className={`absolute inset-0 z-0 w-full h-full object-cover transition-opacity ${
+                triggered ? "opacity-100" : "opacity-0"
+              }`}
+            />
+
+            {/* FRONT: fades in on top; hides on hover to reveal back */}
+            <img
+              src="/e8.png"
+              alt="Model Front"
+              className={`relative z-10 w-full h-auto object-cover 
+    ${frontVisible ? "opacity-100" : "opacity-0"} 
+    ${frontVisible ? "transition-opacity duration-[1200ms]" : ""} 
+    group-hover:opacity-0 group-hover:transition-opacity group-hover:duration-300`}
+              style={{ willChange: "opacity" }}
             />
           </div>
 
-          {/* Middle overlapping image (only on large screens) */}
+          {/* Overlap product */}
           <div className="hidden lg:block absolute left-[-40px] top-1/2 -translate-y-1/2 z-20 w-[150px]">
             <img
               src="/productpic.png"
@@ -50,3 +85,5 @@ export const ShowcaseComponent = () => {
     </section>
   );
 };
+
+export default ShowcaseComponent;

@@ -7,7 +7,7 @@ import Hero from "./components/Hero"
 import LargeNavbar from "./components/LargeNavbar"
 import MainFooter from "./components/MainFooter"
 import { Navbar } from "./components/Navbar"
-import { ShowcaseComponent } from "./components/ShowcaseComponent"
+import ShowcaseComponent from "./components/ShowcaseComponent"
 import ShowcaseComponent2 from "./components/ShowcaseComponent2"
 import TemplateComponent from "./components/TemplateComponent"
 
