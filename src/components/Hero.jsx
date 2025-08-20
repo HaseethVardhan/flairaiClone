@@ -18,7 +18,7 @@ const Hero = () => {
   }, [words.length]);
 
   return (
-    <section className="relative flex flex-col items-center h-full w-full overflow-hidden text-white px-6 font-muoto hide-scrollbar">
+    <section className="relative flex flex-col items-center h-full w-full overflow-hidden text-white px-6 font-muoto hide-scrollbar ">
       <div className="text-center z-10 mt-20">
         <h1 className="text-5xl text-zinc-100/80 font-light sm:text-6xl lg:text-8xl leading-tight">
           The AI design tool for <br />
